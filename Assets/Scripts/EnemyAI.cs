@@ -24,6 +24,7 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.Log("In range");
             gameOver.SetActive(true);
+             Cursor.visible = true;
         }
     }
 }
