@@ -7,7 +7,8 @@ public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent agent;
     public Transform player;
-
+    public GameObject gameOver;
+    
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -19,5 +20,10 @@ public class EnemyAI : MonoBehaviour
         var distance = Vector3.Distance(agent.transform.position, player.transform.position);// no need to perform this operation twice.
         if (distance < 20)
             agent.SetDestination(player.transform.position);
+        if (distance <= 2)
+        {
+            Debug.Log("In range");
+            gameOver.SetActive(true);
+        }
     }
 }
